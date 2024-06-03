@@ -4,13 +4,17 @@ const app = express();
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+const contactRoutes = require('./api/routes/contacts');
+const todosRoutes = require('./api/routes/todos');
+const usersRoutes = require('./api/routes/users');
 
-router.get('/about', (req, res) => {
-    res.send('About Page');
-});
+/**
+ * Initialising Routes
+ */
+app.use('/contacts', contactRoutes)
+app.use('/todos', todosRoutes);
+app.use('/users', usersRoutes);
 
-app.use(router);
+//app.use(router);
+
 module.exports = app;
