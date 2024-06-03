@@ -14,7 +14,13 @@ class ContactsController {
 
      create = () => {
         return (req, res, next) => {
-             res.status(200).json({success: true, method: "create"}) ;
+         console.log(req.body)
+         const obj = {
+            fname: req.body.fname,
+            lname: req.body.lname,
+            email: req.body.email
+         }
+             res.status(200).json({success: true, method: "create", contact: obj}) ;
         }
      }
 
