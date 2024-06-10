@@ -1,3 +1,4 @@
+const Contact = require('../models/contact-model');
 class ContactsController {
      getAll = () => {
         return (req, res, next) => {
@@ -26,6 +27,7 @@ class ContactsController {
 
      findById = () => {
         return (req, res, next) => {
+         console.log(req.query)
              res.status(200).json({success: true, method: "findById"}) ;
         }
      }
